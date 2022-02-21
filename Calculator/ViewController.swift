@@ -52,6 +52,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func dotButtonTapped(_ sender: UIButton) {
+        // 숫자는 8자리까지, 소수점이 포함되지 않게(소숫점 중복 방지)
+        if self.displayNumber.count < 8, !self.displayNumber.contains(".") {
+            self.displayNumber += self.displayNumber.isEmpty ? "0." : "."
+            self.numberResultLabel.text = self.displayNumber
+        }
     }
     
     @IBAction func divideButtonTapped(_ sender: UIButton) {
